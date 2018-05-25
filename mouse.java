@@ -12,20 +12,13 @@ public class mouse extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new FlowLayout());
 
-		JLabel pos = new JLabel("test-test-test-test");
-		pos.addMouseMotionListener(new MouseMotionListener(){
-			@Override
-			public void mouseMoved(MouseEvent arg0){
+		addMouseListener(new MouseAdapter(){
+			public void mousePressed(MouseEvent e){
 				posx = MouseInfo.getPointerInfo().getLocation().getX();
-				posy = MouseInfo.getPointerInfo().getLocation().getY();
-				System.out.println("posx X:"+posx+"pos Y:"+posy);
-			}
-			@Override
-			public void mouseDragged(MouseEvent arg0){
+                                posy = MouseInfo.getPointerInfo().getLocation().getY();
+				System.out.println("you clicked posX:"+posx+" posY:"+posy);
 			}
 		});
-		getContentPane().add(pos);
-		pack();
 
 	}
 	public static void main (String args[]){
