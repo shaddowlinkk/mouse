@@ -4,14 +4,14 @@ import java.awt.*;
 import java.util.concurrent.TimeUnit;
 import java.awt.MouseInfo;
 public class mouse extends JFrame{
-    private JLabel pos;
-    private double posx;
-    private double posy;
+    private JLabel pos = new JLabel("you clicked posX: 0.0 posY: 0.0");
+    private double posx =0.0;
+    private double posy =0.0;
     public  mouse () {
         setSize(150,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-
+        add(pos);
         addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
 
@@ -20,13 +20,15 @@ public class mouse extends JFrame{
             public void keyPressed(KeyEvent e) {
                 posx = MouseInfo.getPointerInfo().getLocation().getX();
                 posy = MouseInfo.getPointerInfo().getLocation().getY();
-                System.out.println("you clicked posX:"+posx+" posY:"+posy);
+                pos.setText("you clicked posX: "+posx+" posY: "+posy);
+                System.out.println();
             }
 
             public void keyReleased(KeyEvent e) {
 
             }
         });
+
         pack();
     }
     public static void main (String args[]){
