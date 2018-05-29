@@ -21,7 +21,6 @@ public class mouse extends JFrame{
                 posx = MouseInfo.getPointerInfo().getLocation().getX();
                 posy = MouseInfo.getPointerInfo().getLocation().getY();
                 pos.setText("you clicked posX: "+posx+" posY: "+posy);
-                System.out.println();
             }
 
             public void keyReleased(KeyEvent e) {
